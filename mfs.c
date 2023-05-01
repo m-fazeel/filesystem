@@ -43,6 +43,7 @@ struct inode
   short in_use;
   int32_t blocks[BLOCKS_PER_FILE];
   uint8_t attribute;
+  uint32_t file_size;
 };
 
 struct directoryEntry* directory;
@@ -347,12 +348,46 @@ void encrypt(char* filename, uint8_t cipher)
     }
 }
 
+void retrieve(char * filename)
+{
+  openfs(filename);
+  closefs();
+  printf("In retrieve %s",filename);  
+  // check the filename isn't null
+
+  // check if file exists
+
+  // check the file isn't too big
+
+  // verify there is enough space
+
+  // 
+
+  // check space is enough
+}
+
+void retrieve1(char * filename, char * newfilename)
+{
+  printf("In retrieve %s -> %s",filename,newfilename);  
+  // check the filename isn't null
+
+  // check if file exists
+
+  // check the file isn't too big
+
+  // verify there is enough space
+
+  // 
+
+  // check space is enough
+}
 
 int main()
 {
 
   char* command_string = (char*)malloc(MAX_COMMAND_SIZE);
-  FILE* fp = NULL;
+  //FILE* fp = NULL;
+  init( );
   while (1)
   {
     // Print out the msh prompt
@@ -400,6 +435,7 @@ int main()
 
     // Now print the tokenized input as a debug check
     // \TODO Remove this for loop and replace with your filesystem functionality
+    // Now, open the output file that we are going to write the data to.       
 
     // int token_index  = 0;
     // for( token_index = 0; token_index < token_count; token_index ++ ) 
@@ -440,6 +476,45 @@ int main()
         continue;
       }
       list();
+    }
+
+    else if (strcmp("df", token[0]) == 0)
+    {
+      if (!image_open)
+      {
+        printf("ERROR: Disk image is not opened\n");
+        continue;
+      }
+      df();
+    }
+    else if (strcmp("quit", token[0]) == 0)
+    {
+      exit(0);
+    }
+
+    else if (strcmp("retrieve", token[0]) == 0)
+    {
+      if (!image_open)
+      {
+        printf("ERROR: Disk image is not opened.\n");
+        continue;
+      }
+      if (token[1] == NULL)
+      {
+        printf("ERROR: No filename specified\n");
+        continue;
+      }
+      if (token[2] == NULL)
+      {        
+        // printf("ERROR: No newfilename specified\n");
+        retrieve(token[1]);
+        continue;
+      }
+      if(token[1]!=NULL && token[2]!=NULL)
+      {
+        retrieve1(token[1],token[2]);
+        continue;
+      }
     }
 
 
