@@ -9,14 +9,14 @@
 
 # Portable Index-Allocated File System
 
-This is a user-space portable index-allocated file system. It provides 226 bytes of drive space in a disk image and allows users to create the filesystem image, list the files currently in the file system, add files, remove files, and save the filesystem. Files persist in the file system image when the program exits.
+This is a user-space portable index-allocated file system. It provides 2<sup>26</sup>  bytes of drive space in a disk image and allows users to create the filesystem image, list the files currently in the file system, add files, remove files, and save the filesystem. Files persist in the file system image when the program exits.
 
 # Filesystem Specifications
 
 - Uses an index allocation scheme.
 - Filesystem block size is 1024 bytes.
 - Consists of 65536 blocks.
-- Supports files up to 220 bytes in size.
+- Supports files up to 2<sup>20</sup> bytes in size.
 - Supports up to 256 files.
 - Supports filenames of up to 64 characters.
 - Only alphanumeric filenames are supported with “.”. There is no restriction on the number of characters before or after the “.”. Files without a “.” are also supported.
