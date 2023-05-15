@@ -6,6 +6,7 @@
 - [Commands](#commands)
 - [Installation and Running](#installation-and-running)
 - [Feedback](#feedback)
+- [Copyright](#copyright)
 
 # Portable Index-Allocated File System
 
@@ -63,3 +64,9 @@ After running the program, you can use the available commands as described in th
 
 # Feedback
 If you encounter any bugs or have suggestions for improvements, feel free to open an issue.
+
+# Copyright
+
+Copyright © 2023. All rights reserved.
+
+This software is provided for educational purposes only. It is prohibited to use this Portable Index-Allocated File System, for any college assignment or personal use. Unauthorized distribution, modification or commercial usage is strictly forbidden. Please respect the rights of the author.
